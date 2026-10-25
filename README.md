@@ -12,7 +12,7 @@ Lumina turns a [Bubble Card](https://github.com/Clooos/Bubble-Card) dashboard in
   <a href="https://my.home-assistant.io/redirect/hacs_repository/?owner=kjanko&repository=lumina-homeassistant-theme&category=theme"><img src="https://my.home-assistant.io/badges/hacs_repository.svg" alt="Open this repository in HACS" /></a>
 </p>
 
-![The same dashboard with Lumina and with the default theme](docs/before-after.png)
+![The same dashboard with Lumina and with the default theme](docs/compare-living-room.png)
 
 ## What it does
 
@@ -28,7 +28,7 @@ Lumina turns a [Bubble Card](https://github.com/Clooos/Bubble-Card) dashboard in
 <table>
   <tr>
     <td align="center"><img src="docs/phone.png" width="300" alt="Lumina on a phone" /><br /><sub>On a phone</sub></td>
-    <td align="center"><img src="docs/popup.png" width="300" alt="A Bubble Card pop-up in Lumina" /><br /><sub>Pop-ups and dropdowns</sub></td>
+    <td align="center"><img src="docs/popup-sheet.png" width="300" alt="A Bubble Card pop-up in Lumina" /><br /><sub>Pop-ups and dropdowns</sub></td>
   </tr>
 </table>
 
