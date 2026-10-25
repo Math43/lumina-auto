@@ -1,0 +1,219 @@
+Lumina:
+  card-mod-theme: Lumina
+
+  # Page background: soft colour glows on a deep navy base. The glass only reads as
+  # glass with something colourful behind it, so keep this unless you replace it.
+  lovelace-background: >-
+    radial-gradient(1200px 600px at 12% 10%, rgba(180,60,230,0.32) 0%, transparent 55%),
+    radial-gradient(1000px 700px at 88% 20%, rgba(40,140,255,0.30) 0%, transparent 55%),
+    radial-gradient(1400px 800px at 75% 85%, rgba(255,60,140,0.25) 0%, transparent 60%),
+    radial-gradient(1000px 700px at 10% 90%, rgba(60,220,220,0.22) 0%, transparent 55%),
+    linear-gradient(160deg, #0a0817 0%, #120f28 50%, #07122a 100%)
+
+  # Design tokens
+  lumina-card-radius: 20px
+  lumina-icon-radius: 14px
+  lumina-sub-button-radius: 12px
+  lumina-card-background: rgba(255,255,255,0.05)
+  lumina-icon-background: rgba(255,255,255,0.07)
+  lumina-border: 1px solid rgba(255,255,255,0.10)
+  lumina-card-shadow: 0 4px 16px rgba(0,0,0,0.25), inset 0 1px 0 rgba(255,255,255,0.08)
+  lumina-name-color: rgba(255,255,255,0.82)
+  lumina-state-color: rgba(255,255,255,0.35)
+  lumina-icon-color: rgba(255,255,255,0.55)
+  lumina-card-blur: blur(20px)
+  lumina-slider-fill: rgba(0,0,0,0.20)
+  lumina-transition: all 0.35s ease
+  lumina-disabled-opacity: 0.35
+
+  # Glass panels: a stack-in-card with card_mod class "glass" (or "glass-inner" inside one)
+  lumina-glass-background: rgba(255,255,255,0.04)
+  lumina-glass-blur: blur(30px) saturate(180%)
+  lumina-glass-radius: 28px
+  lumina-glass-shadow: 0 12px 40px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.18)
+  lumina-glass-padding: 14px
+  lumina-glass-inner-padding: 8px
+
+  # Palette: r,g,b triplets, used as rgba(var(--lumina-green), 0.3) or as a --glow value
+  lumina-amber: 255,180,50
+  lumina-green: 80,200,140
+  lumina-teal: 45,212,191
+  lumina-cyan: 56,189,248
+  lumina-blue: 100,180,255
+  lumina-indigo: 99,102,241
+  lumina-red: 220,80,80
+  lumina-magenta: 226,0,116
+
+  # Section titles (Bubble separators)
+  lumina-separator-line: linear-gradient(90deg, rgba(255,255,255,0.18), transparent)
+  lumina-separator-icon-color: rgba(255,255,255,0.45)
+  # Untitled dividers between rows: faint at the ends, brightest in the middle
+  lumina-divider: linear-gradient(90deg, transparent, rgba(255,255,255,0.07) 18%, rgba(255,255,255,0.30) 50%, rgba(255,255,255,0.07) 82%, transparent)
+
+  # Bubble Card defaults (per-card styles still override these)
+  bubble-border-radius: var(--lumina-card-radius)
+  bubble-icon-border-radius: var(--lumina-icon-radius)
+  bubble-sub-button-border-radius: var(--lumina-sub-button-radius)
+  # Button cards only, so separators and other card types keep their look
+  bubble-button-main-background-color: var(--lumina-card-background)
+  bubble-button-border: var(--lumina-border)
+  bubble-button-box-shadow: var(--lumina-card-shadow)
+  bubble-button-icon-background-color: var(--lumina-icon-background)
+  # Select cards: same look as buttons
+  bubble-select-main-background-color: var(--lumina-card-background)
+  bubble-select-border: var(--lumina-border)
+  bubble-select-box-shadow: var(--lumina-card-shadow)
+  bubble-select-icon-background-color: var(--lumina-icon-background)
+  bubble-select-arrow-background-color: var(--lumina-icon-background)
+  bubble-select-button-border-radius: var(--lumina-sub-button-radius)
+  # Every dropdown menu (select cards and select sub-buttons)
+  bubble-select-list-background-color: rgba(18,15,40,0.92)
+  bubble-select-list-item-accent-color: rgba(255,255,255,0.10)
+  bubble-select-list-border-radius: var(--lumina-card-radius)
+
+  # Lumina is a dark design: pick "Dark" as the theme mode in your profile
+  modes:
+    dark:
+      primary-background-color: "#0a0817"
+      secondary-background-color: "#120f28"
+      card-background-color: "#151231"
+      primary-color: rgb(56,189,248)
+      accent-color: rgb(99,102,241)
+
+  # Base look for every card. No !important on colours, so per-card
+  # styles (e.g. state-based templates) keep winning.
+  card-mod-card: |
+    .bubble-range-slider {
+      border-radius: 0 !important;
+    }
+    .bubble-button-card-container,
+    .bubble-select-card-container {
+      backdrop-filter: var(--lumina-card-blur) !important;
+      border-radius: var(--lumina-card-radius) !important;
+    }
+    .bubble-icon-container {
+      border-radius: var(--lumina-icon-radius) !important;
+      border: var(--lumina-border);
+      transition: var(--lumina-transition);
+    }
+    .bubble-name {
+      font-size: 14px !important;
+      font-weight: 500 !important;
+      color: var(--lumina-name-color);
+    }
+    .bubble-state {
+      font-size: 12px !important;
+      color: var(--lumina-state-color);
+    }
+
+    /* Section titles */
+    .bubble-separator .bubble-line {
+      background: var(--lumina-separator-line) !important;
+      opacity: 1 !important;
+      height: 1px !important;
+    }
+    .bubble-separator .bubble-icon {
+      color: var(--lumina-separator-icon-color) !important;
+      font-size: 16px !important;
+    }
+    .bubble-separator .bubble-name {
+      color: var(--lumina-icon-color) !important;
+      font-size: 11px !important;
+      font-weight: 600 !important;
+      letter-spacing: 1.2px !important;
+      text-transform: uppercase !important;
+    }
+
+    /* Dropdowns: arrow button and the open menu in glass */
+    .bubble-dropdown-arrow {
+      border: var(--lumina-border);
+      box-sizing: border-box;
+      color: var(--lumina-icon-color);
+    }
+    ha-dropdown::part(menu) {
+      backdrop-filter: var(--lumina-glass-blur) !important;
+      -webkit-backdrop-filter: var(--lumina-glass-blur) !important;
+      border: var(--lumina-border) !important;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.12) !important;
+    }
+
+    /* Glow system. A card opts in from its styles with card.classList.add('lumina-glow')
+       and sets --glow (an r,g,b triplet) and --glow-on on .bubble-button-card-container.
+       --glow-on: 0 off, 1 the standard glow, above 1 stronger. Optional: --glow-dim (second
+       gradient colour) and --glow-icon (an icon colour, for glows too dark as icons).
+       With --glow-on: 0 this is exactly the plain Lumina look. The rules are !important
+       (Bubble paints light icons and fills inline) but only reach opted-in cards. */
+    :host {
+      --glow: 255,255,255;
+      --glow-on: 0;
+    }
+    ha-card.lumina-glow .bubble-button-card-container {
+      --lumina-glow-layer: linear-gradient(135deg, rgba(var(--glow), calc(var(--glow-on) * 0.20)), rgba(var(--glow-dim, var(--glow)), calc(var(--glow-on) * 0.10)));
+      background: var(--lumina-glow-layer), rgba(255,255,255, calc(0.05 - var(--glow-on) * 0.05)) !important;
+      border: 1px solid rgba(var(--glow), calc(0.10 + var(--glow-on) * 0.30)) !important;
+      box-shadow: 0 4px 16px rgba(0,0,0, calc(0.25 - var(--glow-on) * 0.25)), 0 8px 28px rgba(var(--glow), calc(var(--glow-on) * 0.18)), inset 0 1px 0 rgba(255,255,255, calc(0.08 + var(--glow-on) * 0.10)) !important;
+      transition: all 0.35s cubic-bezier(0.4,0,0.2,1) !important;
+    }
+    ha-card.lumina-glow .bubble-icon-container {
+      background: rgba(var(--glow), calc(0.07 + var(--glow-on) * 0.05)) !important;
+      border: 1px solid rgba(var(--glow), calc(0.10 + var(--glow-on) * 0.14)) !important;
+      transition: all 0.35s ease !important;
+    }
+    ha-card.lumina-glow .bubble-icon {
+      color: var(--glow-icon, rgba(var(--glow), calc(0.55 + var(--glow-on) * 0.45))) !important;
+      transition: color 0.35s ease !important;
+    }
+    /* Switch buttons: the glow shows the state, so Bubble's solid "on" fill steps aside */
+    ha-card.lumina-glow .bubble-button-background {
+      background-color: transparent !important;
+    }
+    /* Sliders: the card glows, the fill is a quiet dark overlay */
+    ha-card.lumina-glow .bubble-range-fill {
+      background: var(--lumina-slider-fill) !important;
+    }
+
+    /* Disabled: a card or sub-button whose action would do nothing right now.
+       Cards toggle it from their styles: card.classList.toggle('lumina-disabled', cond)
+       or the same on a sub-button element. Dimmed, grey and not tappable. */
+    ha-card.lumina-disabled,
+    .bubble-sub-button.lumina-disabled {
+      opacity: var(--lumina-disabled-opacity) !important;
+      filter: grayscale(1) !important;
+      pointer-events: none !important;
+      transition: opacity 0.35s ease, filter 0.35s ease !important;
+    }
+
+    /* Glass panels. card-mod puts a card_mod class on the card element itself, not on its
+       ha-card, so the rule matches the host: card_mod: { class: glass } on a stack-in-card. */
+    :host(.glass) ha-card,
+    :host(.glass-inner) ha-card {
+      background: var(--lumina-glass-background) !important;
+      backdrop-filter: var(--lumina-glass-blur) !important;
+      -webkit-backdrop-filter: var(--lumina-glass-blur) !important;
+      border: var(--lumina-border) !important;
+      border-radius: var(--lumina-glass-radius) !important;
+      box-shadow: var(--lumina-glass-shadow) !important;
+      padding: var(--lumina-glass-padding) !important;
+      overflow: hidden !important;
+    }
+    /* A panel inside a panel (a device inside a room): tighter, with a gap above */
+    :host(.glass-inner) ha-card {
+      padding: var(--lumina-glass-inner-padding) !important;
+      margin-top: 8px !important;
+    }
+
+    /* Untitled divider: a Bubble separator with no name or icon and card_mod class "divider" */
+    :host(.divider) .bubble-icon-container,
+    :host(.divider) .bubble-name {
+      display: none !important;
+    }
+    :host(.divider) .bubble-separator {
+      height: 18px !important;
+    }
+    :host(.divider) .bubble-separator .bubble-line {
+      flex: 1 1 auto !important;
+      margin: 0 24px !important;
+      height: 2px !important;
+      border-radius: 1px;
+      background: var(--lumina-divider) !important;
+    }

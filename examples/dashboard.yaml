@@ -1,0 +1,168 @@
+# Lumina example dashboard.
+# Paste into a new dashboard (Edit dashboard → ⋮ → Raw configuration editor) and replace the
+# entity IDs with your own. Needs Bubble Card, card-mod and stack-in-card (see the README).
+title: Lumina
+views:
+  - title: Home
+    path: home
+    type: sections
+    max_columns: 2
+    sections:
+      - type: grid
+        cards:
+          # A room: a glass panel with its devices in inner panels
+          - type: custom:stack-in-card
+            card_mod:
+              class: glass
+            cards:
+              - type: custom:bubble-card
+                card_type: separator
+                name: Living Room
+                icon: mdi:sofa-outline
+
+              # Lights: a scene picker, a divider, then lights that glow in their own colour
+              - type: custom:stack-in-card
+                card_mod:
+                  class: glass-inner
+                cards:
+                  - type: custom:bubble-card
+                    card_type: separator
+                    name: Lights
+                    icon: mdi:lightbulb-group-outline
+                  - type: custom:bubble-card
+                    card_type: select
+                    entity: input_select.scene
+                    name: Scene
+                    icon: mdi:palette-outline
+                  - type: custom:bubble-card
+                    card_type: separator
+                    card_mod:
+                      class: divider
+                  - type: horizontal-stack
+                    cards:
+                      - &light
+                        type: custom:bubble-card
+                        card_type: button
+                        button_type: slider
+                        entity: light.living_room
+                        name: Ceiling
+                        icon: mdi:ceiling-light
+                        styles: |
+                          ${(() => {
+                            // Glow in the light's own colour while it's on
+                            card.classList.add('lumina-glow');
+                            const [r, g, b] = hass.states[entity]?.attributes?.rgb_color || [255, 180, 50];
+                            const on = state === 'on';
+                            return `.bubble-button-card-container {
+                              --glow: ${on ? `${r},${g},${b}` : '255,255,255'};
+                              --glow-on: ${on ? 1 : 0};
+                            }`;
+                          })()}
+                      - <<: *light
+                        entity: light.kitchen
+                        name: Kitchen
+                        icon: mdi:countertop-outline
+
+              # A device: power, inputs that grey out while it's off
+              - type: custom:stack-in-card
+                card_mod:
+                  class: glass-inner
+                cards:
+                  - type: custom:bubble-card
+                    card_type: separator
+                    name: TV
+                    icon: mdi:television
+                  - type: custom:bubble-card
+                    card_type: button
+                    button_type: name
+                    entity: media_player.tv
+                    name: TV
+                    icon: mdi:television
+                    sub_button:
+                      - icon: mdi:volume-minus
+                        tap_action:
+                          action: perform-action
+                          perform_action: media_player.volume_down
+                          target:
+                            entity_id: media_player.tv
+                      - icon: mdi:volume-plus
+                        tap_action:
+                          action: perform-action
+                          perform_action: media_player.volume_up
+                          target:
+                            entity_id: media_player.tv
+                    styles: |
+                      ${(() => {
+                        // Blue glow while on; the volume buttons do nothing while it's off
+                        const off = ['off', 'unavailable', 'unknown'].includes(state);
+                        card.classList.add('lumina-glow');
+                        card.querySelectorAll('.bubble-sub-button').forEach((b) => b.classList.toggle('lumina-disabled', off));
+                        return `.bubble-button-card-container {
+                          --glow: var(--lumina-blue);
+                          --glow-on: ${off ? 0 : 1};
+                        }`;
+                      })()}
+                  - type: custom:bubble-card
+                    card_type: button
+                    button_type: name
+                    name: Play / pause
+                    icon: mdi:play-pause
+                    tap_action:
+                      action: perform-action
+                      perform_action: media_player.media_play_pause
+                      target:
+                        entity_id: media_player.tv
+                    button_action:
+                      tap_action:
+                        action: perform-action
+                        perform_action: media_player.media_play_pause
+                        target:
+                          entity_id: media_player.tv
+                    styles: |
+                      ${(() => {
+                        // Greyed out and not tappable while the TV is off
+                        card.classList.toggle('lumina-disabled', ['off', 'unavailable', 'unknown'].includes(hass.states['media_player.tv']?.state));
+                        return '';
+                      })()}
+
+      - type: grid
+        cards:
+          - type: custom:stack-in-card
+            card_mod:
+              class: glass
+            cards:
+              - type: custom:bubble-card
+                card_type: separator
+                name: Status
+                icon: mdi:home-outline
+
+              # A toggle: green when on, red when off
+              - type: custom:bubble-card
+                card_type: button
+                button_type: switch
+                entity: switch.motion_lights
+                name: Motion lights
+                icon: mdi:motion-sensor
+                styles: |
+                  ${(() => { card.classList.add('lumina-glow'); return ''; })()}
+                  .bubble-button-card-container {
+                    --glow: ${state === 'on' ? 'var(--lumina-green)' : 'var(--lumina-red)'};
+                    --glow-on: ${state === 'on' ? 0.65 : 0.4};
+                  }
+
+              # A state: the colour follows what the device is doing
+              - type: custom:bubble-card
+                card_type: button
+                button_type: state
+                entity: vacuum.robot
+                name: Robot vacuum
+                icon: mdi:robot-vacuum
+                styles: |
+                  ${(() => {
+                    card.classList.add('lumina-glow');
+                    const accent = { cleaning: 'var(--lumina-green)', returning: 'var(--lumina-blue)', paused: 'var(--lumina-amber)', error: 'var(--lumina-red)' }[state];
+                    return `.bubble-button-card-container {
+                      --glow: ${accent || 'var(--lumina-teal)'};
+                      --glow-on: ${accent ? 0.9 : 0.35};
+                    }`;
+                  })()}
