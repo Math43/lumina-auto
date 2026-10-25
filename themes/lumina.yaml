@@ -11,9 +11,10 @@ Lumina:
     linear-gradient(160deg, #0a0817 0%, #120f28 50%, #07122a 100%)
 
   # Design tokens
+  # Concentric corners: an inner shape's radius is the card's minus the gap between them
   lumina-card-radius: 20px
-  lumina-icon-radius: 14px
-  lumina-sub-button-radius: 12px
+  lumina-icon-radius: 14px        # 44px icon in a 56px card: 6px in
+  lumina-sub-button-radius: 10px  # 36px sub-button in a 56px card: 10px in
   lumina-card-background: rgba(255,255,255,0.05)
   lumina-icon-background: rgba(255,255,255,0.07)
   lumina-border: 1px solid rgba(255,255,255,0.10)
