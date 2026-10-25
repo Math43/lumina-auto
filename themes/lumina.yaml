@@ -71,6 +71,29 @@ Lumina:
   bubble-select-list-item-accent-color: rgba(255,255,255,0.10)
   bubble-select-list-border-radius: var(--lumina-card-radius)
 
+  # Every other card (graphs, entities, weather, ...): the same glass as Bubble buttons
+  ha-card-background: var(--lumina-card-background)
+  ha-card-border-color: rgba(255,255,255,0.10)
+  ha-card-border-radius: var(--lumina-card-radius)
+  ha-card-box-shadow: var(--lumina-card-shadow)
+  # Graph lines and bars in palette order
+  graph-color-1: rgb(56,189,248)
+  graph-color-2: rgb(226,0,116)
+  graph-color-3: rgb(255,180,50)
+  graph-color-4: rgb(80,200,140)
+  graph-color-5: rgb(99,102,241)
+  graph-color-6: rgb(45,212,191)
+  graph-color-7: rgb(220,80,80)
+  graph-color-8: rgb(100,180,255)
+
+  # State colours from the palette (thermostats, tiles and their mode buttons)
+  state-inactive-color: rgba(255,255,255,0.30)
+  state-climate-heat-color: rgb(255,180,50)
+  state-climate-cool-color: rgb(56,189,248)
+  state-water_heater-electric-color: rgb(255,180,50)
+  state-water_heater-eco-color: rgb(80,200,140)
+  state-water_heater-high_demand-color: rgb(220,80,80)
+
   # Lumina is a dark design: pick "Dark" as the theme mode in your profile
   modes:
     dark:
@@ -104,6 +127,19 @@ Lumina:
     .bubble-state {
       font-size: 12px !important;
       color: var(--lumina-state-color);
+    }
+
+    /* Other cards: frosted like Bubble buttons (Bubble and stack-in-card draw their own) */
+    :host(:not(.type-custom-bubble-card):not(.type-custom-stack-in-card)) ha-card {
+      backdrop-filter: var(--lumina-card-blur);
+      -webkit-backdrop-filter: var(--lumina-card-blur);
+    }
+    /* Their titles in the Lumina type: smaller, softer, like a card name */
+    .card-header {
+      font-size: 16px !important;
+      font-weight: 500 !important;
+      color: var(--lumina-name-color) !important;
+      letter-spacing: 0.2px;
     }
 
     /* Section titles */

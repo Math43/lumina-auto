@@ -1,31 +1,36 @@
-# Lumina ✨
-
-[![HACS Custom](https://img.shields.io/badge/HACS-Custom-41BDF5?logo=home-assistant&logoColor=white)](https://my.home-assistant.io/redirect/hacs_repository/?owner=kjanko&repository=lumina-homeassistant-theme&category=theme)
-[![Last commit](https://img.shields.io/github/last-commit/kjanko/lumina-homeassistant-theme?label=Last%20commit)](https://github.com/kjanko/lumina-homeassistant-theme/commits/main)
-[![GitHub Stars](https://img.shields.io/github/stars/kjanko/lumina-homeassistant-theme?style=social)](https://github.com/kjanko/lumina-homeassistant-theme/stargazers)
-
-![Lumina on a desktop dashboard](docs/screenshot-desktop.png)
-
-### Glass that glows with your home.
-
-**Lumina** is a dark glass theme for Home Assistant dashboards built with [Bubble Card](https://github.com/Clooos/Bubble-Card). Cards are frosted glass on a soft, colourful background. A light glows in its own colour while it's on, a switch glows green or red, and a button that would do nothing right now is greyed out.
-
-[![Open your Home Assistant instance and open this repository in HACS.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=kjanko&repository=lumina-homeassistant-theme&category=theme)
-
-## ✨ Features
-
-- **Frosted glass, everywhere**: every Bubble Card button, slider and dropdown, with no setup per card. 🧊
-- **Glass panels**: group a room in a glass panel, and its devices in smaller inner panels. 🪟
-- **Glow**: cards glow in your devices' own colours, e.g. a light in its colour or a switch green when on and red when off. 💡
-- **Greyed out when it would do nothing**: e.g. the volume buttons while the TV is off. 🚫
-- **Quiet section titles and a centred divider**: uppercase titles with a fading line. ➖
-- **A colour palette** for glows and accents, as ready-made variables. 🎨
-- **Glass dropdown menus**, and a matching dark Home Assistant. 🌑
-- **Copy-paste example dashboard** that uses all of the above. 📋
+<p align="center"><img src="docs/banner.png" alt="Lumina" /></p>
 
 <p align="center">
-  <img src="docs/screenshot-mobile.png" width="320" alt="Lumina on a phone" />
+  <a href="https://my.home-assistant.io/redirect/hacs_repository/?owner=kjanko&repository=lumina-homeassistant-theme&category=theme"><img src="https://img.shields.io/badge/HACS-Custom-41BDF5?logo=home-assistant&logoColor=white" alt="HACS Custom" /></a>
+  <a href="LICENSE"><img src="https://img.shields.io/github/license/kjanko/lumina-homeassistant-theme" alt="MIT license" /></a>
+  <a href="https://github.com/kjanko/lumina-homeassistant-theme/commits/main"><img src="https://img.shields.io/github/last-commit/kjanko/lumina-homeassistant-theme?label=last%20commit" alt="Last commit" /></a>
 </p>
+
+Lumina turns a [Bubble Card](https://github.com/Clooos/Bubble-Card) dashboard into frosted glass on a soft, glowing background. Lights glow in their own colour while they're on, switches in green or red, and buttons that would do nothing right now fade out of the way. Graphs, thermostats and the rest of Home Assistant match.
+
+<p align="center">
+  <a href="https://my.home-assistant.io/redirect/hacs_repository/?owner=kjanko&repository=lumina-homeassistant-theme&category=theme"><img src="https://my.home-assistant.io/badges/hacs_repository.svg" alt="Open this repository in HACS" /></a>
+</p>
+
+![The same dashboard with Lumina and with the default theme](docs/before-after.png)
+
+## What it does
+
+- **Glass everywhere**: Bubble Card buttons, sliders and dropdowns, plus graphs, thermostats, gauges and entity cards. No setup per card.
+- **Rooms in glass panels**: A room is one glass panel, and the devices in it sit in smaller panels inside it.
+- **Glow**: A card can glow in any colour: a light in its own colour, a switch green or red, a robot by what it's doing.
+- **Greyed out when it would do nothing**: The TV's inputs and volume while it's off, "turn off" while nothing is on.
+- **One palette**: Eight colours shared by glows, graph lines and thermostat modes.
+- **Quiet titles, a centred divider**: Small uppercase section titles with a fading line, and a divider that's brightest in the middle.
+
+<p align="center"><img src="docs/dashboard.png" alt="A full Lumina dashboard" /></p>
+
+<table>
+  <tr>
+    <td align="center"><img src="docs/phone.png" width="300" alt="Lumina on a phone" /><br /><sub>On a phone</sub></td>
+    <td align="center"><img src="docs/popup.png" width="300" alt="A Bubble Card pop-up in Lumina" /><br /><sub>Pop-ups and dropdowns</sub></td>
+  </tr>
+</table>
 
 ## Requirements
 
@@ -62,7 +67,7 @@ Copy `themes/lumina.yaml` into the `themes` folder in your Home Assistant config
 
 ## Building blocks
 
-The theme styles every Bubble Card on its own. The pieces below need a line or two on the card. [`examples/dashboard.yaml`](examples/dashboard.yaml) uses all of them.
+The theme styles every card on its own. The pieces below need a line or two on the card. [`examples/dashboard.yaml`](examples/dashboard.yaml) uses all of them.
 
 ### Glass panels
 
@@ -167,7 +172,7 @@ The background is `lovelace-background`. A dashboard view with its own `backgrou
 
 ## Good to know
 
-- **Lumina styles Bubble Card.** Other cards (weather, media players, entities) keep Home Assistant's dark look. To match them, give them their own `card_mod` style using the variables, e.g. `background: var(--lumina-glass-background)`.
+- **Other cards.** Standard cards (graphs, thermostats, gauges, entities, weather) get the glass background, rounded corners and palette colours from Home Assistant's own theme variables. Their layout stays Home Assistant's own; only Bubble Card gets the glow and greyed-out styles.
 - **Card styles and the theme.** The glow, greyed-out and glass rules use `!important` so they win over Bubble's inline colours. A card's own rule that should beat them needs a more specific selector, e.g. `ha-card .bubble-separator .bubble-line` instead of `.bubble-line`.
 - **Cards that appear later.** Cards created after the page loads, such as inside a `conditional` card, may not pick up theme styles until the page is reloaded. To show and hide rows, keep the cards on the page and hide them from their own styles instead:
   ```yaml
