@@ -1,20 +1,31 @@
-# Lumina — a glass theme for Home Assistant
+# Lumina ✨
 
-[![hacs_badge](https://img.shields.io/badge/HACS-Custom-41BDF5.svg)](https://github.com/hacs/integration)
+[![HACS Custom](https://img.shields.io/badge/HACS-Custom-41BDF5?logo=home-assistant&logoColor=white)](https://my.home-assistant.io/redirect/hacs_repository/?owner=kjanko&repository=lumina-homeassistant-theme&category=theme)
+[![Last commit](https://img.shields.io/github/last-commit/kjanko/lumina-homeassistant-theme?label=Last%20commit)](https://github.com/kjanko/lumina-homeassistant-theme/commits/main)
+[![GitHub Stars](https://img.shields.io/github/stars/kjanko/lumina-homeassistant-theme?style=social)](https://github.com/kjanko/lumina-homeassistant-theme/stargazers)
 
-Lumina is a dark glass theme for Home Assistant dashboards built with [Bubble Card](https://github.com/Clooos/Bubble-Card). Cards are frosted glass on a soft, colourful background. Cards can glow in their device's colour, and actions that would do nothing right now are greyed out.
+![Lumina on a desktop dashboard](docs/screenshot-desktop.png)
 
-<!-- Screenshot: add docs/screenshot.png (no personal details) and link it here -->
+### Glass that glows with your home.
 
-## What you get
+**Lumina** is a dark glass theme for Home Assistant dashboards built with [Bubble Card](https://github.com/Clooos/Bubble-Card). Cards are frosted glass on a soft, colourful background. A light glows in its own colour while it's on, a switch glows green or red, and a button that would do nothing right now is greyed out.
 
-- **Glass cards**: every Bubble Card button, slider and dropdown gets the frosted look, with no per-card setup.
-- **Glass panels**: group a room's cards in a glass panel, and devices inside it in smaller inner panels.
-- **Glow**: a card glows in a colour you choose, e.g. a light in its own colour or a switch green or red.
-- **Greyed out**: dims a card or a single button when its action would do nothing, e.g. volume while the TV is off.
-- **Section titles and dividers**: quiet uppercase titles with a fading line, and a centred divider between rows.
-- **A colour palette** for glows and accents.
-- **Glass dropdown menus**.
+[![Open your Home Assistant instance and open this repository in HACS.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=kjanko&repository=lumina-homeassistant-theme&category=theme)
+
+## ✨ Features
+
+- **Frosted glass, everywhere**: every Bubble Card button, slider and dropdown, with no setup per card. 🧊
+- **Glass panels**: group a room in a glass panel, and its devices in smaller inner panels. 🪟
+- **Glow**: cards glow in your devices' own colours, e.g. a light in its colour or a switch green when on and red when off. 💡
+- **Greyed out when it would do nothing**: e.g. the volume buttons while the TV is off. 🚫
+- **Quiet section titles and a centred divider**: uppercase titles with a fading line. ➖
+- **A colour palette** for glows and accents, as ready-made variables. 🎨
+- **Glass dropdown menus**, and a matching dark Home Assistant. 🌑
+- **Copy-paste example dashboard** that uses all of the above. 📋
+
+<p align="center">
+  <img src="docs/screenshot-mobile.png" width="320" alt="Lumina on a phone" />
+</p>
 
 ## Requirements
 
