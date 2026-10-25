@@ -120,6 +120,15 @@ Lumina:
       border: var(--lumina-border);
       transition: var(--lumina-transition);
     }
+    /* Equal margins, so the concentric radii hold on every side: the icon sits 6px from the
+       card's left, top and bottom edges, the sub-buttons 10px from its right, top and bottom.
+       (The values add the card's 1px border.) Cards with their own layout keep it. */
+    .bubble-button-card-container .bubble-icon-container {
+      margin-inline-start: 5px;
+    }
+    .bubble-button-card-container .bubble-sub-button-container {
+      inset-inline-end: 9px;
+    }
     .bubble-name {
       font-size: 14px !important;
       font-weight: 500 !important;
