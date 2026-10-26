@@ -144,6 +144,13 @@ Lumina:
       backdrop-filter: var(--lumina-card-blur);
       -webkit-backdrop-filter: var(--lumina-card-blur);
     }
+    /* Inside a stack-in-card (a glass panel), stack-in-card clears their background, corners and
+       shadow inline. Bring the glass tile back, so e.g. Mushroom cards sit in a panel like Bubble cards */
+    :host(:not(.type-custom-bubble-card):not(.type-custom-stack-in-card)) ha-card[style*="border-radius: 0px"] {
+      background: var(--lumina-card-background) !important;
+      border-radius: var(--lumina-card-radius) !important;
+      box-shadow: var(--lumina-card-shadow) !important;
+    }
     /* Their titles in the Lumina type: smaller, softer, like a card name */
     .card-header {
       font-size: 16px !important;
