@@ -71,9 +71,12 @@ Lumina:
   bubble-select-list-background-color: rgba(18,15,40,0.92)
   bubble-select-list-item-accent-color: rgba(255,255,255,0.10)
   bubble-select-list-border-radius: var(--lumina-card-radius)
+  # Behind an open pop-up: the page's own deep navy, dimmed
+  bubble-backdrop-background-color: rgba(10,8,23,0.6)
 
   # Every other card (graphs, entities, weather, ...): the same glass as Bubble buttons
-  ha-card-background: var(--lumina-card-background)
+  # (Their glass background is set in card-mod-card, not as ha-card-background: Bubble Card builds
+  # pop-ups and their backdrop from ha-card-background, and the white glass tint made them white.)
   ha-card-border-color: rgba(255,255,255,0.10)
   ha-card-border-radius: var(--lumina-card-radius)
   ha-card-box-shadow: var(--lumina-card-shadow)
@@ -141,6 +144,7 @@ Lumina:
 
     /* Other cards: frosted like Bubble buttons (Bubble and stack-in-card draw their own) */
     :host(:not(.type-custom-bubble-card):not(.type-custom-stack-in-card)) ha-card {
+      background: var(--lumina-card-background);
       backdrop-filter: var(--lumina-card-blur);
       -webkit-backdrop-filter: var(--lumina-card-blur);
     }
