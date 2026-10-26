@@ -16,7 +16,7 @@ Lumina turns a [Bubble Card](https://github.com/Clooos/Bubble-Card) dashboard in
 
 ## What it does
 
-- **Glass everywhere**: Bubble Card buttons, sliders and dropdowns, plus graphs, thermostats, gauges and entity cards. No setup per card.
+- **Glass everywhere**: every Bubble Card type (button, select, climate, cover, media player, calendar), plus graphs, thermostats, gauges and entity cards. No setup per card.
 - **Rooms in glass panels**: A room is one glass panel, and the devices in it sit in smaller panels inside it.
 - **Glow**: A card can glow in any colour: a light in its own colour, a switch green or red, a robot by what it's doing.
 - **Greyed out when it would do nothing**: The TV's inputs and volume while it's off, "turn off" while nothing is on.

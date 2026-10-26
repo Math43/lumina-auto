@@ -67,6 +67,24 @@ Lumina:
   bubble-select-icon-background-color: var(--lumina-icon-background)
   bubble-select-arrow-background-color: var(--lumina-icon-background)
   bubble-select-button-border-radius: var(--lumina-sub-button-radius)
+  # Climate, cover, media player and calendar cards: same glass as buttons
+  # (Bubble reads --bubble-<card_type>-*; the generic --bubble-* ones would also restyle pop-ups)
+  bubble-climate-main-background-color: var(--lumina-card-background)
+  bubble-climate-border: var(--lumina-border)
+  bubble-climate-box-shadow: var(--lumina-card-shadow)
+  bubble-climate-icon-background-color: var(--lumina-icon-background)
+  bubble-climate-button-background-color: var(--lumina-icon-background)
+  bubble-cover-main-background-color: var(--lumina-card-background)
+  bubble-cover-border: var(--lumina-border)
+  bubble-cover-box-shadow: var(--lumina-card-shadow)
+  bubble-cover-icon-background-color: var(--lumina-icon-background)
+  bubble-media-player-main-background-color: var(--lumina-card-background)
+  bubble-media-player-border: var(--lumina-border)
+  bubble-media-player-box-shadow: var(--lumina-card-shadow)
+  bubble-media-player-icon-background-color: var(--lumina-icon-background)
+  bubble-calendar-main-background-color: var(--lumina-card-background)
+  bubble-calendar-border: var(--lumina-border)
+  bubble-calendar-box-shadow: var(--lumina-card-shadow)
   # Every dropdown menu (select cards and select sub-buttons)
   bubble-select-list-background-color: rgba(18,15,40,0.92)
   bubble-select-list-item-accent-color: rgba(255,255,255,0.10)
@@ -114,7 +132,11 @@ Lumina:
       border-radius: 0 !important;
     }
     .bubble-button-card-container,
-    .bubble-select-card-container {
+    .bubble-select-card-container,
+    .bubble-climate-container,
+    .bubble-cover-container,
+    .bubble-media-player-container,
+    .bubble-calendar-container {
       backdrop-filter: var(--lumina-card-blur) !important;
       border-radius: var(--lumina-card-radius) !important;
     }
