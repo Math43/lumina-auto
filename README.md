@@ -1,9 +1,9 @@
 <p align="center"><img src="docs/banner.png" alt="Lumina" /></p>
 
 <p align="center">
-  <a href="https://my.home-assistant.io/redirect/hacs_repository/?owner=kjanko&repository=lumina-homeassistant-theme&category=theme"><img src="https://img.shields.io/badge/HACS-Custom-41BDF5?logo=home-assistant&logoColor=white" alt="HACS Custom" /></a>
-  <a href="LICENSE"><img src="https://img.shields.io/github/license/kjanko/lumina-homeassistant-theme" alt="MIT license" /></a>
-  <a href="https://github.com/kjanko/lumina-homeassistant-theme/commits/main"><img src="https://img.shields.io/github/last-commit/kjanko/lumina-homeassistant-theme?label=last%20commit" alt="Last commit" /></a>
+  <a href="https://my.home-assistant.io/redirect/hacs_repository/?owner=Math43&repository=lumina-auto&category=theme"><img src="https://img.shields.io/badge/HACS-Custom-41BDF5?logo=home-assistant&logoColor=white" alt="HACS Custom" /></a>
+  <a href="LICENSE"><img src="https://img.shields.io/github/license/Math43/lumina-auto" alt="MIT license" /></a>
+  <a href="https://github.com/Math43/lumina-auto/commits/main"><img src="https://img.shields.io/github/last-commit/Math43/lumina-auto?label=last%20commit" alt="Last commit" /></a>
 </p>
 
 Lumina turns a [Bubble Card](https://github.com/Clooos/Bubble-Card) dashboard into frosted glass on a soft, glowing background. Lights glow in their own colour while they're on, switches in green or red, and buttons that would do nothing right now fade out of the way. Graphs, thermostats and the rest of Home Assistant match.
@@ -13,7 +13,7 @@ Lumina turns a [Bubble Card](https://github.com/Clooos/Bubble-Card) dashboard in
 > To install it, add `Math43/lumina-auto` to HACS as a custom repository of type **Theme**. It is not meant to be merged upstream. All credit for the design goes to the original author.
 
 <p align="center">
-  <a href="https://my.home-assistant.io/redirect/hacs_repository/?owner=kjanko&repository=lumina-homeassistant-theme&category=theme"><img src="https://my.home-assistant.io/badges/hacs_repository.svg" alt="Open this repository in HACS" /></a>
+  <a href="https://my.home-assistant.io/redirect/hacs_repository/?owner=Math43&repository=lumina-auto&category=theme"><img src="https://my.home-assistant.io/badges/hacs_repository.svg" alt="Open this repository in HACS" /></a>
 </p>
 
 ![The same dashboard with Lumina and with the default theme](docs/compare-living-room.png)
@@ -52,7 +52,7 @@ All three cards are available in HACS.
 ### HACS (recommended)
 
 1. Open HACS → ⋮ → **Custom repositories**.
-2. Add `https://github.com/kjanko/lumina-homeassistant-theme` with category **Theme**.
+2. Add `https://github.com/Math43/lumina-auto` with category **Theme**.
 3. Search for "Lumina" and download it.
 
 ### Manual
