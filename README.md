@@ -63,7 +63,7 @@ Copy `themes/lumina.yaml` into the `themes` folder in your Home Assistant config
      themes: !include_dir_merge_named themes
    ```
 2. Restart Home Assistant, or call the `frontend.reload_themes` action.
-3. Open your profile, set **Theme** to **Lumina** and **Mode** to **Dark**. Lumina is a dark design.
+3. Open your profile, set **Theme** to **Lumina** and **Mode** to **Auto**, **Light** or **Dark**. Dark is the original look; Light is a frosted-white variant.
 
 ## Building blocks
 

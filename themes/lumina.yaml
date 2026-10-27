@@ -26,6 +26,13 @@ Lumina:
   lumina-slider-fill: rgba(0,0,0,0.20)
   lumina-transition: all 0.35s ease
   lumina-disabled-opacity: 0.35
+  # Glow/shadow building blocks, so the glow system can follow the mode
+  lumina-ink: 255,255,255          # r,g,b of text and line tints: white on dark, navy on light
+  lumina-shadow-rgb: 0,0,0
+  lumina-shadow-alpha: 0.25        # card drop shadow strength
+  lumina-glow-base: 0.05           # glass tint under a card that is not glowing
+  lumina-highlight: 0.08           # inset top highlight strength
+  lumina-menu-shadow: 0 12px 40px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.12)
 
   # Glass panels: a stack-in-card with card_mod class "glass" (or "glass-inner" inside one)
   lumina-glass-background: rgba(255,255,255,0.04)
@@ -116,7 +123,8 @@ Lumina:
   state-water_heater-eco-color: rgb(80,200,140)
   state-water_heater-high_demand-color: rgb(220,80,80)
 
-  # Lumina is a dark design: pick "Dark" as the theme mode in your profile
+  # Dark is the default look (the flat keys above). Light overrides them in modes.light.
+  # Pick Auto, Light or Dark as the theme mode in your profile
   modes:
     dark:
       primary-background-color: "#0a0817"
@@ -124,6 +132,74 @@ Lumina:
       card-background-color: "#151231"
       primary-color: rgb(56,189,248)
       accent-color: rgb(99,102,241)
+    light:
+      primary-background-color: "#eef4fc"
+      secondary-background-color: "#e1ebf8"
+      card-background-color: "#ffffff"
+      primary-color: rgb(2,132,199)
+      accent-color: rgb(79,70,229)
+
+      # Same recipe as dark: colour glows behind, glass in front. Glass is a faint white tint,
+      # the edge a faint ink tint, one soft shadow and one top highlight. No extra layers.
+      lovelace-background: >-
+        radial-gradient(1200px 600px at 12% 10%, rgba(90,150,255,0.30) 0%, transparent 55%),
+        radial-gradient(1000px 700px at 88% 20%, rgba(40,190,255,0.26) 0%, transparent 55%),
+        radial-gradient(1400px 800px at 75% 85%, rgba(60,130,240,0.22) 0%, transparent 60%),
+        radial-gradient(1000px 700px at 10% 90%, rgba(60,220,210,0.24) 0%, transparent 55%),
+        linear-gradient(160deg, #f3f8ff 0%, #e4effc 50%, #eaf6fb 100%)
+
+      lumina-card-background: rgba(255,255,255,0.14)
+      lumina-icon-background: rgba(20,32,56,0.06)
+      lumina-border: 1px solid rgba(20,32,56,0.10)
+      lumina-card-shadow: 0 4px 16px rgba(20,40,80,0.10), inset 0 1px 0 rgba(255,255,255,0.70)
+      lumina-name-color: rgba(20,32,56,0.88)
+      lumina-state-color: rgba(20,32,56,0.55)
+      lumina-icon-color: rgba(20,32,56,0.60)
+      lumina-slider-fill: rgba(20,32,56,0.12)
+      lumina-glass-background: rgba(255,255,255,0.10)
+      lumina-glass-shadow: 0 12px 40px rgba(20,40,80,0.15), inset 0 1px 0 rgba(255,255,255,0.90)
+
+      lumina-setpoint-color: rgba(20,32,56,0.90)
+      lumina-ink: 20,32,56
+      lumina-shadow-rgb: 20,40,80
+      lumina-shadow-alpha: 0.10
+      lumina-glow-base: 0.14
+      lumina-highlight: 0.70
+      lumina-menu-shadow: 0 12px 40px rgba(20,40,80,0.20), inset 0 1px 0 rgba(255,255,255,0.90)
+
+      # Palette darkened for contrast on a light background
+      lumina-amber: 217,119,6
+      lumina-green: 22,163,74
+      lumina-teal: 13,148,136
+      lumina-cyan: 2,132,199
+      lumina-blue: 37,99,235
+      lumina-indigo: 79,70,229
+      lumina-red: 220,38,38
+      lumina-magenta: 200,0,100
+
+      lumina-separator-line: linear-gradient(90deg, rgba(20,32,56,0.22), transparent)
+      lumina-separator-icon-color: rgba(20,32,56,0.50)
+      lumina-divider: linear-gradient(90deg, transparent, rgba(20,32,56,0.08) 18%, rgba(20,32,56,0.30) 50%, rgba(20,32,56,0.08) 82%, transparent)
+
+      bubble-select-list-background-color: rgba(248,250,254,0.94)
+      bubble-select-list-item-accent-color: rgba(20,40,80,0.08)
+      bubble-backdrop-background-color: rgba(20,32,56,0.28)
+
+      ha-card-border-color: rgba(20,32,56,0.10)
+      graph-color-1: rgb(2,132,199)
+      graph-color-2: rgb(200,0,100)
+      graph-color-3: rgb(217,119,6)
+      graph-color-4: rgb(22,163,74)
+      graph-color-5: rgb(79,70,229)
+      graph-color-6: rgb(13,148,136)
+      graph-color-7: rgb(220,38,38)
+      graph-color-8: rgb(37,99,235)
+      state-inactive-color: rgba(20,32,56,0.35)
+      state-climate-heat-color: rgb(217,119,6)
+      state-climate-cool-color: rgb(2,132,199)
+      state-water_heater-electric-color: rgb(217,119,6)
+      state-water_heater-eco-color: rgb(22,163,74)
+      state-water_heater-high_demand-color: rgb(220,38,38)
 
   # Base look for every card. No !important on colours, so per-card
   # styles (e.g. state-based templates) keep winning.
@@ -153,6 +229,15 @@ Lumina:
     }
     .bubble-button-card-container .bubble-sub-button-container {
       inset-inline-end: 9px;
+    }
+    /* Climate set-point: Bubble tints it with the heat/cool state colour, which can match the card's
+       own state fill. --lumina-setpoint-color overrides it (unset = Bubble's default) */
+    .bubble-low-temp-container,
+    .bubble-high-temp-container {
+      color: var(--lumina-setpoint-color, var(--state-climate-heat-color, var(--state-climate-active-color, var(--state-active-color))));
+    }
+    .bubble-high-temp-container {
+      color: var(--lumina-setpoint-color, var(--state-climate-cool-color, var(--state-climate-active-color, var(--state-active-color))));
     }
     .bubble-name {
       font-size: 14px !important;
@@ -213,7 +298,7 @@ Lumina:
       backdrop-filter: var(--lumina-glass-blur) !important;
       -webkit-backdrop-filter: var(--lumina-glass-blur) !important;
       border: var(--lumina-border) !important;
-      box-shadow: 0 12px 40px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.12) !important;
+      box-shadow: var(--lumina-menu-shadow) !important;
     }
 
     /* Glow system. A card opts in from its styles with card.classList.add('lumina-glow')
@@ -223,14 +308,14 @@ Lumina:
        With --glow-on: 0 this is exactly the plain Lumina look. The rules are !important
        (Bubble paints light icons and fills inline) but only reach opted-in cards. */
     :host {
-      --glow: 255,255,255;
+      --glow: var(--lumina-ink);
       --glow-on: 0;
     }
     ha-card.lumina-glow .bubble-button-card-container {
       --lumina-glow-layer: linear-gradient(135deg, rgba(var(--glow), calc(var(--glow-on) * 0.20)), rgba(var(--glow-dim, var(--glow)), calc(var(--glow-on) * 0.10)));
-      background: var(--lumina-glow-layer), rgba(255,255,255, calc(0.05 - var(--glow-on) * 0.05)) !important;
+      background: var(--lumina-glow-layer), rgba(255,255,255, calc(var(--lumina-glow-base) - var(--glow-on) * var(--lumina-glow-base))) !important;
       border: 1px solid rgba(var(--glow), calc(0.10 + var(--glow-on) * 0.30)) !important;
-      box-shadow: 0 4px 16px rgba(0,0,0, calc(0.25 - var(--glow-on) * 0.25)), 0 8px 28px rgba(var(--glow), calc(var(--glow-on) * 0.18)), inset 0 1px 0 rgba(255,255,255, calc(0.08 + var(--glow-on) * 0.10)) !important;
+      box-shadow: 0 4px 16px rgba(var(--lumina-shadow-rgb), calc(var(--lumina-shadow-alpha) - var(--glow-on) * var(--lumina-shadow-alpha))), 0 8px 28px rgba(var(--glow), calc(var(--glow-on) * 0.18)), inset 0 1px 0 rgba(255,255,255, calc(var(--lumina-highlight) + var(--glow-on) * 0.10)) !important;
       transition: all 0.35s cubic-bezier(0.4,0,0.2,1) !important;
     }
     ha-card.lumina-glow .bubble-icon-container {
