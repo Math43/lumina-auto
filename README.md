@@ -8,6 +8,10 @@
 
 Lumina turns a [Bubble Card](https://github.com/Clooos/Bubble-Card) dashboard into frosted glass on a soft, glowing background. Lights glow in their own colour while they're on, switches in green or red, and buttons that would do nothing right now fade out of the way. Graphs, thermostats and the rest of Home Assistant match.
 
+> **About this fork.** `lumina-auto` is a fork of [kjanko/lumina-homeassistant-theme](https://github.com/kjanko/lumina-homeassistant-theme) that adds a **light mode**. Pick **Auto**, **Light** or **Dark** in your profile; dark stays the original look, light is a frosted-white variant on a soft peach, sky, rose and mint background. The theme is still named `Lumina`, so `card-mod-theme: Lumina` and existing dashboards keep working, and it replaces the upstream theme (both define the same name, so install only one).
+>
+> To install it, add `Math43/lumina-auto` to HACS as a custom repository of type **Theme**. It is not meant to be merged upstream. All credit for the design goes to the original author.
+
 <p align="center">
   <a href="https://my.home-assistant.io/redirect/hacs_repository/?owner=kjanko&repository=lumina-homeassistant-theme&category=theme"><img src="https://my.home-assistant.io/badges/hacs_repository.svg" alt="Open this repository in HACS" /></a>
 </p>
