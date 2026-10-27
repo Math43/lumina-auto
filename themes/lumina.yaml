@@ -133,20 +133,20 @@ Lumina:
       primary-color: rgb(56,189,248)
       accent-color: rgb(99,102,241)
     light:
-      primary-background-color: "#eef4fc"
-      secondary-background-color: "#e1ebf8"
+      primary-background-color: "#f7f6fa"
+      secondary-background-color: "#ece9f2"
       card-background-color: "#ffffff"
       primary-color: rgb(2,132,199)
       accent-color: rgb(79,70,229)
 
-      # Same recipe as dark: colour glows behind, glass in front. Glass is a faint white tint,
+      # Same recipe as dark: a soft four-hue aurora (peach, sky, rose, mint) behind, glass in front. Glass is a faint white tint,
       # the edge a faint ink tint, one soft shadow and one top highlight. No extra layers.
       lovelace-background: >-
-        radial-gradient(1200px 600px at 12% 10%, rgba(90,150,255,0.30) 0%, transparent 55%),
-        radial-gradient(1000px 700px at 88% 20%, rgba(40,190,255,0.26) 0%, transparent 55%),
-        radial-gradient(1400px 800px at 75% 85%, rgba(60,130,240,0.22) 0%, transparent 60%),
-        radial-gradient(1000px 700px at 10% 90%, rgba(60,220,210,0.24) 0%, transparent 55%),
-        linear-gradient(160deg, #f3f8ff 0%, #e4effc 50%, #eaf6fb 100%)
+        radial-gradient(1200px 600px at 12% 10%, rgba(255,170,120,0.28) 0%, transparent 55%),
+        radial-gradient(1000px 700px at 88% 20%, rgba(90,180,255,0.26) 0%, transparent 55%),
+        radial-gradient(1400px 800px at 75% 85%, rgba(255,130,170,0.20) 0%, transparent 60%),
+        radial-gradient(1000px 700px at 10% 90%, rgba(80,220,190,0.24) 0%, transparent 55%),
+        linear-gradient(160deg, #fffaf6 0%, #f7f6fa 50%, #f2f7fa 100%)
 
       lumina-card-background: rgba(255,255,255,0.14)
       lumina-icon-background: rgba(20,32,56,0.06)
@@ -311,7 +311,8 @@ Lumina:
       --glow: var(--lumina-ink);
       --glow-on: 0;
     }
-    ha-card.lumina-glow .bubble-button-card-container {
+    ha-card.lumina-glow .bubble-button-card-container,
+    ha-card.lumina-glow .bubble-climate-container {
       --lumina-glow-layer: linear-gradient(135deg, rgba(var(--glow), calc(var(--glow-on) * 0.20)), rgba(var(--glow-dim, var(--glow)), calc(var(--glow-on) * 0.10)));
       background: var(--lumina-glow-layer), rgba(255,255,255, calc(var(--lumina-glow-base) - var(--glow-on) * var(--lumina-glow-base))) !important;
       border: 1px solid rgba(var(--glow), calc(0.10 + var(--glow-on) * 0.30)) !important;
